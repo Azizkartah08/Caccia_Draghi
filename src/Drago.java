@@ -7,12 +7,8 @@ public class Drago implements Runnable {
     }
     @Override
     public void run() {
-        for(int i = 0; i < battiti; i++) {
-            System.out.print(nome + " il drago sta facendo " + battiti + " battiti");
-        } try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+            for (int i = 0; (i < battiti) && Thread.interrupted(); i++) {
+                System.out.print(nome + " sta facendo " + (i+1) + " battiti");
+            }
     }
 }
